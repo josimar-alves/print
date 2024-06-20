@@ -6,7 +6,8 @@ body {
 }
 
 .container {
-	width: 50%;
+	width: 90%;
+	max-width: 540px;
 	margin: 0 auto;
 	background-color: #fff;
 	padding: 20px;
@@ -15,9 +16,11 @@ body {
 	border-radius: 8px;
 }
 
-h1 {
-	text-align: center;
-	color: #333;
+.logo {
+	display: block;
+	margin: 0 auto 20px auto;
+	width: 150px;
+	height: 150px;
 }
 
 form {
@@ -25,16 +28,28 @@ form {
 	flex-direction: column;
 }
 
+.form-group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+}
+
 label {
 	margin-bottom: 5px;
 	color: #555;
+	font-weight: bold; /* Adiciona negrito nos títulos */
 }
 
 input, textarea {
-	margin-bottom: 15px;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	width: 100%;
+}
+
+textarea {
+	/* Ajuste para exibir todo o conteúdo ao imprimir */
+	overflow: visible;
 }
 
 button {
@@ -48,4 +63,33 @@ button {
 
 button:hover {
 	background-color: #4cae4c;
+}
+
+/* Estilos para impressão */
+@media print {
+	body {
+			width: 54mm;
+			margin: 0;
+			padding: 0;
+	}
+
+	.container {
+			width: 100%;
+			box-shadow: none;
+			margin: 0;
+			padding: 0;
+	}
+
+	input, textarea {
+			border: none;
+	}
+
+	button {
+			display: none;
+	}
+
+	/* Ocultar cabeçalho e rodapé */
+	@page {
+			margin: 0;
+	}
 }
